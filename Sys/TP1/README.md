@@ -199,7 +199,7 @@ sudo find /tmp -type f -mmin -1 -delete
 
 ### III. Communication des processus sous Linux
 ##### Exercice 1
-```
+```c++
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
