@@ -32,13 +32,23 @@ DESCRIBE Artiste;
 
 /* III- */
 
+/* Artiste */
 INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Pablo Picasso", "M", "1881", "Malaga", "Spain", '1973/04/08');
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Jackson Pollock", "M", "1912", "Wyoming", "USA", "1956/08/11");
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Claude Monet", "M", "1840", "Paris", "France", "1926/12/05");
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Vincent van Gogh", "M", "1853", "Zundert", "Netherlands", "1890/07/29");
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Frida Kahlo", "F", "1907", "Mexico City", "Mexico", "1954/07/13");
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Mary Cassatt", "F", "1844", "Allegheny", "USA", "1926/06/14");
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Salvador Dal", "M", "1904", "Figueres", "Spain", "1989/01/23");
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Jackson Pollock", "M", "1912", "Wyoming", "USA", '1956/08/11');
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Claude Monet", "M", "1840", "Paris", "France", '1926/12/05');
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Vincent van Gogh", "M", "1853", "Zundert", "Netherlands", '1890/07/29');
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Frida Kahlo", "F", "1907", "Mexico City", "Mexico", '1954/07/13');
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Mary Cassatt", "F", "1844", "Allegheny", "USA", '1926/06/14');
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Salvador Dal", "M", "1904", "Figueres", "Spain", '1989/01/23');
 INSERT INTO Artiste(nom, sexe, datns, localite, pays) 			VALUES("Bridget Riley", "F", "1931", "London", "UK");
-INSERT INTO Artiste(nom, sexe, datns, 			pays, datdc) 	VALUES("Augusto Rivera", "M", "1922", "Columbia", "1982/08/18");
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Ida O\'Keeffe","F", "1889", "Wisconsin", "USA", "1961/09/27");
+INSERT INTO Artiste(nom, sexe, datns, 			pays, datdc) 	VALUES("Augusto Rivera", "M", "1922", "Columbia", '1982/08/18');
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Ida O\'Keeffe","F", "1889", "Wisconsin", "USA", '1961/09/27');
+
+/* Oeuvre */
+INSERT INTO Oeuvre(cdevr, titre, cdart, datcr, cdsup, cdacq, valeur) VALUES(1, "The Tragedy",( SELECT cdart FROM Artiste WHERE nom="Pablo Picasso"), "1778", "Toile", "Don", 155000000);
+INSERT INTO Oeuvre(cdevr, titre, cdart, datcr, cdsup, cdacq, valeur) VALUES(2, "Life", ( SELECT cdart FROM Artiste WHERE nom="Pablo Picasso"), "1776", "Toile", "Legs", 10000000);
+INSERT INTO Oeuvre(cdevr, titre, cdart, datcr, cdsup, cdacq, valeur) VALUES(3, "Rocks at Port Coton, the Lion Rock", ( SELECT cdart FROM Artiste WHERE nom="Claude Monet"), "1886", "Toile", "Achat", 120000000);
+INSERT INTO Oeuvre(cdevr, titre, cdart, datcr, cdsup, cdacq, valeur) VALUES(4, "Flower of Life (Flame Flower)", ( SELECT cdart FROM Artiste WHERE nom="Frida Kahlo"), "1943", "Papier", "Achat", 90000000);
+INSERT INTO Oeuvre(cdevr, titre, cdart, datcr, cdsup, cdacq, valeur) VALUES(5, "Weeping Coconuts or Coconut Tears", ( SELECT cdart FROM Artiste WHERE nom="Frida Kahlo"), "1951", "Toile", "Dation", 125000000);
+INSERT INTO Oeuvre(cdevr, titre, cdart, datcr, cdsup, cdacq, valeur) VALUES(6, "The Sea at Fecamp", ( SELECT cdart FROM Artiste WHERE nom="Claude Monet"), "1881", "Toile", "Don", 125000000.00);
+
