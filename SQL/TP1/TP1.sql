@@ -32,13 +32,13 @@ DESCRIBE Artiste;
 
 /* III- */
 
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Pablo Picasso", "M", "1881", "Malaga", "Spain", "08/04/1973");
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Jackson Pollock", "M", "1912", "Wyoming", "USA", "11/08/1956");
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Claude Monet", "M", "1840", "Paris", "France", "05/12/1926");
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Vincent van Gogh", "M", "1853", "Zundert", "Netherlands", "29/07/1890");
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Frida Kahlo", "F", "1907", "Mexico City", "Mexico", "13/07/1954");
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Mary Cassatt", "F", "1844", "Allegheny", "USA", "14/06/1926");
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Salvador Dal", "M", "1904", "Figueres", "Spain", "23/01/1989");
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Pablo Picasso", "M", "1881", "Malaga", "Spain", '1973/04/08');
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Jackson Pollock", "M", "1912", "Wyoming", "USA", "1956/08/11");
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Claude Monet", "M", "1840", "Paris", "France", "1926/12/05");
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Vincent van Gogh", "M", "1853", "Zundert", "Netherlands", "1890/07/29");
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Frida Kahlo", "F", "1907", "Mexico City", "Mexico", "1954/07/13");
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Mary Cassatt", "F", "1844", "Allegheny", "USA", "1926/06/14");
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Salvador Dal", "M", "1904", "Figueres", "Spain", "1989/01/23");
 INSERT INTO Artiste(nom, sexe, datns, localite, pays) 			VALUES("Bridget Riley", "F", "1931", "London", "UK");
-INSERT INTO Artiste(nom, sexe, datns, 			pays, datdc) 	VALUES("Augusto Rivera", "M", "1922", "Columbia", "18/08/1982");
-INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Ida O\'Keeffe","F", "1889", "Wisconsin", "USA", "27/09/1961");
+INSERT INTO Artiste(nom, sexe, datns, 			pays, datdc) 	VALUES("Augusto Rivera", "M", "1922", "Columbia", "1982/08/18");
+INSERT INTO Artiste(nom, sexe, datns, localite, pays, datdc) 	VALUES("Ida O\'Keeffe","F", "1889", "Wisconsin", "USA", "1961/09/27");
