@@ -121,3 +121,18 @@ INSERT INTO Tendance(cdtdn, inttdn) VALUES (4, "Nouvelle Tendance");
 INSERT INTO Artiste(nom, sexe, datns, localite, pays) VALUES("Unknown", "M", "DC", "Everywhere", "Everywhere");
 INSERT INTO Oeuvre(cdevr, titre, cdart, datcr, cdsup, cdacq) VALUES(8, "Portrait of an Unknown First World War Officer",( SELECT cdart FROM Artiste WHERE nom="Unknown"), "1910", "Papier", "Don");
 
+/* 8- Update Artist */
+UPDATE Artiste SET datdc='2019/04/20' WHERE nom="Monir Farmanfarmaian";
+UPDATE Artiste SET datdc=NOW() WHERE nom="Bridget Riley";
+
+/* 9- Count Oeuvre */
+SELECT COUNT(*) as Total FROM Oeuvre;
+
+/* 10- Oeuvre Par Artiste */
+SELECT A.nom as Artist, COUNT(*) as Novels FROM Oeuvre as O INNER JOIN Artiste AS A ON A.cdart = O.cdart GROUP BY Artist;
+
+/* 11 */
+SELECT AVG(valeur) FROM Oeuvre;
+
+/* 12 */
+SELECT titre, valeur FROM Oeuvre WHERE valeur > 2;
