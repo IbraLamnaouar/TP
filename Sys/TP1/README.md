@@ -205,29 +205,29 @@ sudo find /tmp -type f -mmin -1 -delete
 #include <stdlib.h>
 #include <sys/wait.h>
 int	main() {
-	int	pid[2] = {0, 0};
-	printf("Current PID: %d\n", getpid());
-	pid[0] = fork();
-	if (pid[0] == 0) {
-		printf("----------------------Child1--------------\n");
-		printf("Parent PID: %d \n", getppid());
-		printf("Child PID: %d \n", getpid());
-		exit(EXIT_SUCCESS);
-	}else{
-		printf("%d\n", getppid());
-		printf("%d\n", getpid());
-	}
-	pid[1] = fork();
+    int	pid[2] = {0, 0};
+    printf("Current PID: %d\n", getpid());
+    pid[0] = fork();
+    if (pid[0] == 0) {
+        printf("----------------------Child1--------------\n");
+        printf("Parent PID: %d \n", getppid());
+        printf("Child PID: %d \n", getpid());
+        exit(EXIT_SUCCESS);
+    }else{
+        printf("%d\n", getppid());
+        printf("%d\n", getpid());
+    }
+    pid[1] = fork();
     if (pid[1] == 0) {
         printf("----------------------Child2--------------\n");
         printf("Parent PID: %d \n", getppid());
         printf("Child PID: %d \n", getpid());
         exit(EXIT_SUCCESS);
-	}else{
+    }else{
         printf("%d\n", getppid());
         printf("%d\n", getpid());
     }
-	return (0);
+    return (0);
 }
 ```
 
@@ -239,20 +239,20 @@ int	main() {
 #include <sys/wait.h>
 #include <assert.h>
 int	main(int argc, char **argv) {
-	int	pid[3] = {0, 0, 0};
-	assert(argc > 1);
-	printf("Current PID: %d\n", getpid());
-	pid[0] = fork();
-	if (pid[0] == 0) {
-		int sum = 0;
-		for(int i = 1; i < argc; i++) sum+=atoi(argv[i]);
-		printf("La somme est %d \n", sum);
-		exit(EXIT_SUCCESS);
-	}else{
-		printf("%d\n", getppid());
-		printf("%d\n", getpid());
-	}
-	pid[1] = fork();
+    int	pid[3] = {0, 0, 0};
+    assert(argc > 1);
+    printf("Current PID: %d\n", getpid());
+    pid[0] = fork();
+    if (pid[0] == 0) {
+        int sum = 0;
+        for(int i = 1; i < argc; i++) sum+=atoi(argv[i]);
+        printf("La somme est %d \n", sum);
+        exit(EXIT_SUCCESS);
+    }else{
+        printf("%d\n", getppid());
+        printf("%d\n", getpid());
+    }
+    pid[1] = fork();
     if (pid[1] == 0) {
         int max = atoi(argv[1]);
         for(int i = 2; i < argc; i++)
@@ -263,7 +263,7 @@ int	main(int argc, char **argv) {
         printf("%d\n", getppid());
         printf("%d\n", getpid());
     }
-	pid[2] = fork();
+    pid[2] = fork();
     if (pid[2] == 0) {
         int min = atoi(argv[1]);
         for(int i = 2; i < argc; i++) if (min > atoi(argv[i])) min = atoi(argv[i]);
@@ -273,7 +273,7 @@ int	main(int argc, char **argv) {
         printf("%d\n", getppid());
         printf("%d\n", getpid());
     }
-	return (0);
+    return (0);
 }
 ```
 
@@ -294,8 +294,7 @@ int main(int argc, char *argv[])
     char message[255] = "Bonjour M";
     char buf;
     assert(argc == 3);
-    if (pipe(pipefd) == -1 || pipe(pipepd) == -1)
-    {
+    if (pipe(pipefd) == -1 || pipe(pipepd) == -1) {
         perror("pipe");
         exit(EXIT_FAILURE);
     }
@@ -304,8 +303,7 @@ int main(int argc, char *argv[])
         perror("fork");
         exit(EXIT_FAILURE);
     }
-    if (cpid == 0)
-    { /* Child reads from pipe */
+    if (cpid == 0) {
         close(pipefd[1]);
         close(pipepd[0]);
         if (read(pipefd[0], &gender, sizeof(gender)) == -1){
@@ -320,30 +318,24 @@ int main(int argc, char *argv[])
             printf("Gender unknown");
             exit(EXIT_FAILURE);
         }
-        while (read(pipefd[0], &buf, 1) > 0) {
-            sprintf(message, "%s%c", message, buf);
-        }
+        while (read(pipefd[0], &buf, 1) > 0) sprintf(message, "%s%c", message, buf);
         close(pipefd[0]);
         write(pipepd[1], message, strlen(message));
         close(pipepd[1]);
         exit(EXIT_SUCCESS);
-    }
-    else
-    { /* Parent writes argv[1] to pipe */
+    } else {
         close(pipefd[0]);
         close(pipepd[1]);
-
         gender = atoi(argv[2]);
         write(pipefd[1], &gender, sizeof(gender));
         write(pipefd[1], argv[1], strlen(argv[1]));
-        close(pipefd[1]); /* Reader will see EOF */
-        wait(NULL); /* Wait for child */
-        while (read(pipepd[0], &buf, 1) > 0) {
-            write(STDOUT_FILENO, &buf, 1);
-        }
+        close(pipefd[1]);
+        wait(NULL);
+        while (read(pipepd[0], &buf, 1) > 0) write(STDOUT_FILENO, &buf, 1);
         write(STDOUT_FILENO, "\n", 1);
         close(pipepd[0]);
         exit(EXIT_SUCCESS);
     }
+    return (0);
 }
 ```
