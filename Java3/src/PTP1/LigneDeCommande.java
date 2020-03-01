@@ -26,6 +26,6 @@ public class LigneDeCommande {
     }
 
     public String toString() {
-        return (this.PR.getCode() + "\t" + this.PR.getNom() + "\t" + this.PR.getPU() + "\t" + this.PR.getTR()*100 + "%\t" + this.QC + "\t" + this.PR.getPU()*QC);
+        return (this.PR.toStringCommande() + "\t" + this.QC + "\t" + this.PR.getPU()*QC);
     }
 }

@@ -18,8 +18,9 @@ public class ProduitAvecRemise extends ProduitEnStock {
     }
 
     public String toString() {
-        return (super.toString() + "\nRemise: "+ this.TR*100 + "%");
+        return (super.toString() + "\t"+ this.TR*100 + "%");
     }
+
 
 
     public double getPU() {
@@ -29,6 +30,6 @@ public class ProduitAvecRemise extends ProduitEnStock {
 
 
     public double ValeurEnStock() {
-        return (this.QS * (this.PU - this.PU*this.TR));
+        return (this.QS * this.getPU());
     }
 }

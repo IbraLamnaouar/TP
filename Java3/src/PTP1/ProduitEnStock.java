@@ -8,7 +8,7 @@ public class ProduitEnStock implements Cloneable{
     protected double PU;
     protected int QS;
     protected static int NP = 0;
-    protected double TR;
+    protected double TR = 0.;
 
 
     public ProduitEnStock() {
@@ -40,18 +40,15 @@ public class ProduitEnStock implements Cloneable{
     }
 
     public String toString() {
-        return ("Code: " + this.Code + "\nNom: "+ this.Nom + "\nPrix: "+ this.PU + "\nQuantite: "+ this.QS);
+        return (this.Code + "\t"+ this.Nom + "\t"+ this.PU + "\t"+ this.QS+ "\t");
+    }
+
+
+    public String toStringCommande() {
+        return (this.Code + "\t"+ this.Nom + "\t"+ this.getPU()  + "\t" + this.TR*100 + "%");
     }
 
     public double getPU() { return (this.PU); }
-
-    public int getQS() { return (this.QS); }
-
-    public String getNom() { return (this.Nom); }
-
-    public int getCode() { return (this.Code); }
-
-    public double getTR() { return (this.TR); }
 
     public void EntreEnStock(int Q) {
         this.QS += Q;

@@ -134,5 +134,5 @@ SELECT A.nom as Artist, COUNT(*) as Novels FROM Oeuvre as O INNER JOIN Artiste A
 /* 11 */
 SELECT AVG(valeur) FROM Oeuvre;
 
-/* 12 */
+/* 12s */
 SELECT titre, valeur FROM Oeuvre WHERE valeur > 2;
